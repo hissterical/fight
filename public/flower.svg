@@ -1,0 +1,17 @@
+<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Flower center -->
+  <circle cx="50" cy="50" r="12" fill="#FFEB3B" />
+  
+  <!-- Petals -->
+  <path d="M50 15 C60 30, 75 30, 50 50 C25 30, 40 30, 50 15" fill="#FF9AA2" opacity="0.9" />
+  <path d="M50 15 C40 30, 25 30, 50 50 C75 30, 60 30, 50 15" fill="#FF9AA2" opacity="0.9" transform="rotate(72 50 50)" />
+  <path d="M50 15 C40 30, 25 30, 50 50 C75 30, 60 30, 50 15" fill="#FF9AA2" opacity="0.9" transform="rotate(144 50 50)" />
+  <path d="M50 15 C40 30, 25 30, 50 50 C75 30, 60 30, 50 15" fill="#FF9AA2" opacity="0.9" transform="rotate(216 50 50)" />
+  <path d="M50 15 C40 30, 25 30, 50 50 C75 30, 60 30, 50 15" fill="#FF9AA2" opacity="0.9" transform="rotate(288 50 50)" />
+  
+  <!-- Stem -->
+  <path d="M50 62 L50 85" stroke="#77DD77" stroke-width="3" />
+  
+  <!-- Leaf -->
+  <path d="M50 75 C60 70, 70 80, 50 85 C30 80, 40 70, 50 75" fill="#77DD77" opacity="0.8" />
+</svg>
