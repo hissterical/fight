@@ -55,7 +55,7 @@ export default function Timer({ lastFightDate, onReset }: TimerProps) {
         className="px-6 py-3 bg-pink-500 hover:bg-pink-600 text-white rounded-full 
                  transition-all duration-300 transform hover:scale-105 shadow-lg"
       >
-        Reset Timer
+        Reset timer :/
       </button>
     </div>
   );

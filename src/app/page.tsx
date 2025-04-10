@@ -54,7 +54,7 @@ export default function Home() {
       </main>
       
       <footer className="mt-8 text-center text-sm text-pink-700 opacity-80">
-        <p>Track your peaceful days with love and harmony 💖</p>
+        <p>Days without the fun 💖</p>
       </footer>
     </div>
   );
