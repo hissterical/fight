@@ -6,20 +6,37 @@ import FloralBackground from '@/components/FloralBackground';
 
 export default function Home() {
   const [lastFightDate, setLastFightDate] = useState<Date>(new Date());
+  const [isLoading, setIsLoading] = useState(true);
 
-  // Load the last fight date from localStorage on component mount
+  // Load the last fight date from API on component mount
   useEffect(() => {
-    const savedDate = localStorage.getItem('lastFightDate');
-    if (savedDate) {
-      setLastFightDate(new Date(savedDate));
-    }
+    fetch('/api/lastFightDate')
+      .then(res => res.json())
+      .then(data => {
+        setLastFightDate(new Date(data.lastFightDate));
+        setIsLoading(false);
+      })
+      .catch(error => {
+        console.error('Failed to fetch last fight date:', error);
+        setIsLoading(false);
+      });
   }, []);
 
   // Reset the timer to current date/time
-  const handleReset = () => {
+  const handleReset = async () => {
     const now = new Date();
-    setLastFightDate(now);
-    localStorage.setItem('lastFightDate', now.toISOString());
+    try {
+      await fetch('/api/lastFightDate', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ date: now.toISOString() }),
+      });
+      setLastFightDate(now);
+    } catch (error) {
+      console.error('Failed to update last fight date:', error);
+    }
   };
 
   return (
@@ -29,7 +46,11 @@ export default function Home() {
       
       {/* Main Content */}
       <main className="glass p-8 md:p-12 max-w-md w-full mx-auto">
-        <Timer lastFightDate={lastFightDate} onReset={handleReset} />
+        {isLoading ? (
+          <div className="text-center">Loading...</div>
+        ) : (
+          <Timer lastFightDate={lastFightDate} onReset={handleReset} />
+        )}
       </main>
       
       <footer className="mt-8 text-center text-sm text-pink-700 opacity-80">
